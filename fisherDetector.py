@@ -3,6 +3,7 @@ import urllib.request
 import json
 
 OPENDOTA = 'https://api.opendota.com/api'
+APIKEY = ''
 CODING = None
 steam64id0 = 76561197960265728
 
