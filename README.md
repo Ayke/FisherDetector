@@ -14,7 +14,19 @@ In "users.txt", enlist all the userIDs you want to investigate, example "users.t
 >209267092  
 >887160947  
 
-And in the python file, fill in your API, run it, if the player is denoted as "FISHING", you gotta beware of this game, it could be a trap.
+
+And in the python file, if you have an OpenDota APIKEY, fill it in. If not, that's okay, just the query numers are limited (see https://www.opendota.com/api-keys)
+
+Run it (**in python3**), if the player is denoted as "FISHING", you gotta beware of this game, it could be a trap.
+
+If you don't know if you have python, or how to run a python file, here's the tutorials:
+
+
+>[Installation of python](https://www.python.org/getit/)
+
+>[Run python file](https://www.pythoncentral.io/execute-python-script-file-shell/)
+
+Or you can ask me if you know me in real life XD
 
 # How to get a user's ID
 

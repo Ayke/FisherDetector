@@ -3,6 +3,7 @@ import urllib.request
 import json
 
 OPENDOTA = 'https://api.opendota.com/api'
+APIKEY = ''
 CODING = None
 steam64id0 = 76561197960265728
 
@@ -17,12 +18,12 @@ def openLoad(url):
 def getPlayer32ID(steam64id):
 	return str(int(steam64id) - steam64id0)
 
-# Returns a link of a players recent 20 matches
+# Returns a player's recent 20 matches
 def getPlayerMatches(steamid):
 	return openLoad(OPENDOTA + '/players/' + str(steamid) \
 		+ '/recentMatches?api_key=' + APIKEY)
 
-# Returns a link of a match's detail
+# Returns a match's detail
 def getMatchDetail(matchid):
 	return openLoad(OPENDOTA + '/matches/' + str(matchid) \
 		+ '?api_key=' + APIKEY)
@@ -40,10 +41,11 @@ def printMatchInfo(match):
 
 
 # Analyze if a player in a won match wins overwhelmingly
+# Returns a dictionary, check validity before use
 def analyze(user, match):
 	# Initialization
-	acceptedGameMode = ['1','2', '3', '4', '16','22']
-	acceptedLobbyType = ['0','2','5','6','7','9']
+	acceptedGameMode = ['1', '2', '3', '4', '16', '22']
+	acceptedLobbyType = ['0', '2', '5', '6', '7', '9']
 	user = str(user)
 	ans = {
 		'isATrap' : False, 
@@ -75,7 +77,7 @@ def analyze(user, match):
 	# Test if the ratio is high and the sum of scores is high
 	winLoseRatio = winnerScore/loserScore
 	if winLoseRatio >= 2:
-		if winnerScore/loserScore >= 3.2:
+		if winnerScore/loserScore >= 3.0:
 			if winnerScore + loserScore >= 50:
 				ans['isATrap'] = True
 				if debugModeOn:
